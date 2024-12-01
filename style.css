@@ -1,0 +1,168 @@
+*{
+    margin: 0; padding: 0;
+    box-sizing: border-box;
+    font-family: inherit;
+    outline: none; border: none;
+}
+@font-face {
+    font-family: 'Nunito-Black';
+    src: url(fonts/Nunito-Black.ttf);
+}
+@font-face {
+    font-family: 'Nunito';
+    src: url(fonts/Nunito-Regular.ttf);
+}
+:root{
+    --pColor : #f01380;
+    --dColor: #2d2d2d;
+    --lColor : #f5f5f5;
+    --gColor : #b9bac7;
+    --bColor: #131313;
+}
+body{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: var(--dColor);
+    font-family: Nunito;
+    color: var(--gColor);
+    height: 100vh;
+    line-height: 1.5;
+}
+header{
+    display: flex;
+    align-items: center;
+    gap: 1em;
+    min-height: 20vh;
+}
+header i{
+    font-size: 4rem;
+    color: var(--pColor);
+}
+.header-title h1{
+    color: var(--lColor);
+    font-family: Nunito-Black;
+}
+main{
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+    position: absolute;
+    top: 22vh;
+}
+form{
+    width: 30em;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+.inputContainer{
+    display: flex;
+    align-items: center;
+    width: 100%;
+    align-items: center;
+    background-color: var(--bColor);
+    border-radius: 4em;
+    padding-left: 1em;
+}
+.inputContainer i {
+    font-size: 1.5rem;
+}
+input{
+    width: 100%;
+    font-size: 1.3rem;
+    background-color: transparent;
+    padding: .5em;
+    color: var(--lColor);
+}
+.addItemButton{
+    background-color: var(--pColor);
+    padding: .5em;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.categoryContainer{
+    display: flex;
+    gap: .5em;
+    align-items: center;
+    position: absolute;
+    z-index: -1;
+}
+.categoryContainer.add{
+    animation: moveCategory 2s forwards;
+}
+.categoryContainer.add i{
+    animation: turnIcon 1s 2;
+}
+.categoryContainer i {
+    font-size: 1.3rem;
+    width: 1.8em; height: 1.8em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.work{
+    background-color: #560bad;
+}
+.gym{
+    background-color: #fb5607;
+}
+.home{
+    background-color: #6a994e;
+}
+
+@keyframes moveCategory {
+    0%{
+        right: 0;
+    }
+    30%{right: -140px;}
+    100%{
+        right: -140px;
+        z-index: 1;
+    }
+}
+@keyframes turnIcon {
+    to{transform: rotate(1turn);}
+}
+.todoContainer ul{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+.todoItem{
+    display: flex;
+    align-items: center;
+    gap: .5em;
+    border-radius: 1em;
+    padding: .5em 1em;
+    margin-top: 1em;
+    transition: 0.1s;
+    letter-spacing: 1px;
+}
+.todoItem i{
+    font-size: 1.2rem;
+    cursor: pointer;
+}
+.todoItem li{
+    width: 100%;
+}
+.cheaked{
+    opacity: .3;
+    order: 2;
+}
+.cheaked li{
+    text-decoration: line-through;
+}
+.editing li{
+    animation: blink .3s;
+    -webkit-animation: blink .3s;
+}
+.editing .edit{
+    color: darkslateblue;
+}
+@keyframes blink{
+    to{opacity: 0;}
+}
